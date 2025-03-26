@@ -6,8 +6,8 @@ import { cn } from '@/lib/utils';
 import Container from '@/components/ui/Container';
 import { Button } from '@/components/ui/button';
 
-// Import the logo
-import MexicanosLogo from '/public/lovable-uploads/75746f01-469f-4e6a-bd7e-0861b6a20d53.png';
+// Import the logo from our assets directory
+import { MexicanosLogo } from '@/assets/MexicanosLogo';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);

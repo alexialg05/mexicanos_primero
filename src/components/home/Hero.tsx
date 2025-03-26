@@ -6,8 +6,8 @@ import { Container } from '@/components/ui/Container';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-// Import the logo
-import MexicanosLogo from '/public/lovable-uploads/75746f01-469f-4e6a-bd7e-0861b6a20d53.png';
+// Import the logo from our assets directory
+import { MexicanosLogo } from '@/assets/MexicanosLogo';
 
 interface HeroProps {
   isVisible: boolean;
