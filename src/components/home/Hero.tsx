@@ -6,9 +6,6 @@ import { Container } from '@/components/ui/Container';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-// Import the logo from our assets directory
-import { MexicanosLogo } from '@/assets/MexicanosLogo';
-
 interface HeroProps {
   isVisible: boolean;
 }
@@ -24,13 +21,6 @@ const Hero = ({ isVisible }: HeroProps) => {
     >
       <Container className="relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          <div className="flex justify-center mb-6">
-            <img 
-              src={MexicanosLogo} 
-              alt="Mexicanos Primero Jalisco Logo" 
-              className="w-48 h-48 object-contain"
-            />
-          </div>
           <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
             Plataforma de vinculación educativa
           </div>
