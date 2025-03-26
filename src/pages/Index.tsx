@@ -20,6 +20,9 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+// Import the logo
+import MexicanosLogo from '/public/lovable-uploads/75746f01-469f-4e6a-bd7e-0861b6a20d53.png';
+
 const Index = () => {
   const [visibleSections, setVisibleSections] = useState<Record<string, boolean>>({
     hero: false,
@@ -60,31 +63,37 @@ const Index = () => {
       title: 'Gestión de usuarios',
       description: 'Perfiles completos para administradores, escuelas y aliados con información detallada.',
       icon: Users,
+      link: null,
     },
     {
       title: 'Registro de necesidades',
       description: 'Las escuelas pueden registrar sus necesidades, subir evidencias y dar seguimiento.',
       icon: BookOpen,
+      link: '/register-needs',
     },
     {
       title: 'Seguimiento de apoyos',
       description: 'Control detallado de los apoyos brindados, cronogramas y evidencias del impacto.',
       icon: CheckCircle,
+      link: null,
     },
     {
       title: 'Mapeo de escuelas',
       description: 'Visualización geográfica de escuelas y sus necesidades para facilitar la ayuda.',
       icon: MapPin,
+      link: null,
     },
     {
       title: 'Comunicación directa',
       description: 'Sistema de mensajería entre escuelas y aliados para coordinación efectiva.',
       icon: MessageSquare,
+      link: '/chat',
     },
     {
       title: 'Reportes y estadísticas',
       description: 'Generación de informes detallados sobre los apoyos y su impacto en la comunidad.',
       icon: BarChart3,
+      link: null,
     },
   ];
 
@@ -154,15 +163,22 @@ const Index = () => {
       >
         <Container className="relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-              Mexicanos Primero Jalisco
+            <div className="flex justify-center mb-6">
+              <img 
+                src={MexicanosLogo} 
+                alt="Mexicanos Primero Jalisco Logo" 
+                className="w-48 h-48 object-contain"
+              />
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-foreground">
-              Conectando escuelas y aliados para transformar la educación
+            <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+              Plataforma de vinculación educativa
+            </div>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground">
+              Mexicanos Primero Jalisco
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Una plataforma que facilita la identificación de necesidades educativas 
-              y conecta escuelas con organizaciones dispuestas a brindar apoyo.
+              Conectando escuelas y aliados para transformar la educación en Jalisco
+              a través de una plataforma que facilita la colaboración efectiva.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/register">
@@ -206,14 +222,29 @@ const Index = () => {
             {features.map((feature, index) => (
               <div 
                 key={feature.title}
-                className="glass-card p-6 rounded-lg hover-scale transition-all"
+                className={cn(
+                  "glass-card p-6 rounded-lg hover-scale transition-all", 
+                  feature.link ? "cursor-pointer" : ""
+                )}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="rounded-full w-12 h-12 bg-primary/10 flex items-center justify-center mb-4">
-                  <feature.icon className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
+                {feature.link ? (
+                  <Link to={feature.link} className="block h-full">
+                    <div className="rounded-full w-12 h-12 bg-primary/10 flex items-center justify-center mb-4">
+                      <feature.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                    <p className="text-muted-foreground">{feature.description}</p>
+                  </Link>
+                ) : (
+                  <>
+                    <div className="rounded-full w-12 h-12 bg-primary/10 flex items-center justify-center mb-4">
+                      <feature.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                    <p className="text-muted-foreground">{feature.description}</p>
+                  </>
+                )}
               </div>
             ))}
           </div>

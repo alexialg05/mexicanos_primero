@@ -14,6 +14,8 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import CompleteProfile from "./pages/CompleteProfile";
 import NotFound from "./pages/NotFound";
+import Chat from "./pages/Chat";
+import RegisterNeeds from "./pages/RegisterNeeds";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +31,8 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/chat" element={<Chat />} />
+            <Route path="/register-needs" element={<RegisterNeeds />} />
             
             {/* Protected Routes */}
             <Route element={<ProtectedRoute />}>

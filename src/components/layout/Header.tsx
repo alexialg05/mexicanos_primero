@@ -6,6 +6,9 @@ import { cn } from '@/lib/utils';
 import Container from '@/components/ui/Container';
 import { Button } from '@/components/ui/button';
 
+// Import the logo
+import MexicanosLogo from '/public/lovable-uploads/75746f01-469f-4e6a-bd7e-0861b6a20d53.png';
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -44,9 +47,13 @@ const Header = () => {
           <div className="flex items-center">
             <Link 
               to="/" 
-              className="text-2xl font-bold text-primary transition-opacity duration-300 hover:opacity-80"
+              className="transition-opacity duration-300 hover:opacity-80"
             >
-              Educare
+              <img 
+                src={MexicanosLogo} 
+                alt="Mexicanos Primero Jalisco Logo" 
+                className="h-10 w-auto"
+              />
             </Link>
           </div>
 
